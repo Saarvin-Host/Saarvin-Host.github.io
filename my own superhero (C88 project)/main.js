@@ -1,5 +1,4 @@
-
-var canvas = new fabric.canvas ("myCanvas");
+var canvas = new fabric.Canvas("myCanvas");
 
 player_x = 10;
 player_y = 10;
@@ -28,8 +27,8 @@ function new_image(get_image){
     fabric.Image.fromURL(get_image, function(Img){
         block_image_object = Img;
 
-        block_image_object.scaleToWidth(150);
-        block_image_object.scaleToHeight(140);
+        block_image_object.scaleToWidth(block_image_width);
+        block_image_object.scaleToHeight(block_image_height);
 
         block_image_object.set({
             top:player_y,
@@ -81,28 +80,72 @@ function my_keydown(e){
         console.log("right");
     }
 
-    if (keypressed = "66"){
+    if (keypressed == "66"){
         new_image("ironman_body.png");
         console.log("b");
     }
 
-    if (keypressed = "76"){
+    if (keypressed == "76"){
         new_image("spiderman_legs.png");
         console.log("l");
     }
 
-    if (keypressed = "84"){
+    if (keypressed == "84"){
         new_image("thor_face.png");
         console.log("t");
     }
 
-    if (keypressed = "82"){
+    if (keypressed == "82"){
         new_image("thor_rigth_hand.png");
         console.log("r");
     }
 
-    if (keypressed = "67"){
+    if (keypressed == "67"){
         new_image("captain_america_left_hand.png");
         console.log("c");
     }
+}
+
+function up(){
+    if (player_y >= 0){
+        player_y = player_y - block_image_height;
+        console.log("block_image_height = " + block_image_height);
+        console.log("when up arrow pressed, X = " + player_x + "and Y = " + player_y);
+        canvas.remove(player_object);
+
+        player_update();
+    } 
+}
+
+function down(){
+    if (player_y <= 500){
+        player_y = player_y + block_image_height;
+        console.log("block_image_height = " + block_image_height);
+        console.log("when up arrow pressed, X = " + player_x + "and Y = " + player_y);
+        canvas.remove(player_object);
+
+        player_update();
+    } 
+}
+
+function left(){
+    if (player_x >= 0){
+        player_x = player_x - block_image_width;
+        console.log("block_image_width = " + block_image_width);
+        console.log("when up arrow pressed, X = " + player_x + "and Y = " + player_y);
+        canvas.remove(player_object);
+
+        player_update();
+    } 
+}
+
+function right(){
+    if (player_x <= 900){
+        player_x = player_x + block_image_width;
+        console.log("block_image_width = " + block_image_width);
+        console.log("when up arrow pressed, X = " + player_x + "and Y = " + player_y);
+        canvas.remove(player_object);
+
+        player_update();
+    } 
 }
