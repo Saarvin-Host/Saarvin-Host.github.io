@@ -1,0 +1,9 @@
+div{
+  margin: 10px;
+  width: 47%;
+}
+
+#show_para1, #show_para2{
+  margin: 10px;
+  width: 100%;
+}
